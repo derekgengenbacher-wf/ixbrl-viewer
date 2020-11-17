@@ -11,25 +11,27 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+import io
+import json
+import math
+import os
+import re
+import pycountry
+import zipfile
+
+from lxml import etree
 
 from arelle import XbrlConst
 from arelle.ModelDocument import Type
-from arelle.ModelValue import QName
-from lxml import etree
-import json
-import math
-import re
-import pycountry
-from arelle.ValidateXbrlCalcs import inferredDecimals
 from arelle.ModelRelationshipSet import ModelRelationshipSet
-from .xhtmlserialize import XHTMLSerializer
-import os
-
-import io
-import zipfile
+from arelle.ModelValue import QName
 from arelle.PythonUtil import attrdict
+from arelle.ValidateXbrlCalcs import inferredDecimals
+from .xhtmlserialize import XHTMLSerializer
+
 
 WIDER_NARROWER_ARCROLE = 'http://www.esma.europa.eu/xbrl/esef/arcrole/wider-narrower'
+
 
 class NamespaceMap:
     """
